@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS social_links (
+  id SERIAL PRIMARY KEY,
+  icon TEXT NOT NULL,
+  url TEXT NOT NULL,
+  title TEXT NOT NULL,
+  custom_icon TEXT
+);
+
+INSERT INTO social_links (icon, url, title)
+VALUES
+  ('discord', '', 'Discord'),
+  ('vk', '', 'VK'),
+  ('telegram', '', 'Telegram')
+ON CONFLICT DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS accordions (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL,
+  serverId TEXT NOT NULL
+);
